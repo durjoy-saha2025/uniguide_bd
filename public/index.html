@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Bangladesh private universities, compare study options, and find guidance for your next step.">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta property="og:title" content="UniGuide BD — Find your university fit">
+  <meta property="og:description" content="A clearer way to explore university and study options in Bangladesh.">
+  <meta property="og:type" content="website">
+  <title>UniGuide BD — Find your university fit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/shared.js" defer></script>
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="UniGuide BD home">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UniGuide<span class="brand-country"> BD</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="menu-lines" aria-hidden="true"></span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="universities.html">Universities</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#guidance">Guidance</a>
+        <a href="compare.html">Compare <span class="compare-count" data-compare-count>0</span></a>
+      </nav>
+      <a class="button button-small button-outline header-action" href="universities.html">Start exploring <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Your next chapter starts here</div>
+          <h1>Find a university that feels <span>right for you.</span></h1>
+          <p class="hero-description">Explore study options across Bangladesh with clear information, thoughtful guidance, and your goals at the center.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="universities.html">Explore universities <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#guidance">How UniGuide works <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-note">
+            <span class="avatar-stack" aria-hidden="true"><i>U</i><i>G</i><i>+</i></span>
+            <span>A clearer path to your next step</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Illustration of a student planning their university journey">
+          <div class="visual-card visual-card-back">
+            <span class="visual-label">Your journey</span>
+            <div class="journey-step"><span class="step-number">01</span><span>Explore options</span><span class="step-check">✓</span></div>
+            <div class="journey-step"><span class="step-number">02</span><span>Compare your fit</span><span class="step-check">✓</span></div>
+            <div class="journey-step journey-step-current"><span class="step-number">03</span><span>Plan your next move</span><span class="step-arrow">↗</span></div>
+          </div>
+          <div class="visual-card visual-card-front">
+            <div class="visual-topline"><span class="visual-label">A good place to begin</span><span class="sparkle" aria-hidden="true">✳</span></div>
+            <div class="campus-art" aria-hidden="true">
+              <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+              <div class="building"><div class="building-roof"></div><div class="building-main"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+              <div class="tree tree-one"></div><div class="tree tree-two"></div><div class="ground"></div>
+            </div>
+            <div class="visual-caption"><span class="caption-icon" aria-hidden="true">⌖</span><span><strong>Start with what matters</strong><small>Location, subject, and your priorities</small></span></div>
+          </div>
+          <div class="floating-note"><span aria-hidden="true">✦</span> Your goals, your shortlist</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-section" id="discover" aria-labelledby="search-title">
+      <div class="container">
+        <form class="search-panel" id="discovery-search">
+          <div class="search-heading">
+            <div><span class="section-kicker">Make it yours</span><h2 id="search-title">What are you looking for?</h2></div>
+            <span class="demo-badge">Demo experience</span>
+          </div>
+          <div class="search-fields">
+            <label class="search-field">
+              <span class="field-icon" aria-hidden="true">⌕</span>
+              <span class="field-content"><span class="field-label">University or subject</span><input id="query" name="query" type="search" placeholder="e.g. computer science" autocomplete="off"></span>
+            </label>
+            <label class="search-field">
+              <span class="field-icon" aria-hidden="true">⌖</span>
+              <span class="field-content"><span class="field-label">Preferred location</span>
+                <select id="location" name="location">
+                  <option value="">Anywhere in Bangladesh</option>
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Chattogram">Chattogram</option>
+                  <option value="Sylhet">Sylhet</option>
+                </select>
+              </span>
+            </label>
+            <button class="button button-primary search-submit" type="submit">Find options <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="search-helper" id="search-status" role="status">Search the illustrative sample below. University details are demo content and need verification.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section universities-section" aria-labelledby="universities-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="section-kicker">A place to start</span><h2 id="universities-title">Explore universities</h2><p>A small sample to help you picture your options.</p></div>
+          <a class="text-link" href="universities.html">Browse all universities <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="demo-notice"><span aria-hidden="true">ⓘ</span> <span>Illustrative demo content. These examples are not verified listings; check official university sources before making decisions.</span></div>
+        <div class="university-grid" id="university-list" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-icon" aria-hidden="true">⌕</span><h3>No sample options match yet</h3><p>Try a different search or clear the location filter.</p>
+          <button class="button button-outline" id="clear-search" type="button">Clear search</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section subjects-section" id="subjects" aria-labelledby="subjects-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="section-kicker">Follow your curiosity</span><h2 id="subjects-title">Explore by subject</h2><p>Start with a field you’re excited to learn more about.</p></div>
+        </div>
+        <div class="subject-grid">
+          <a class="subject-card subject-mint" href="#discover" data-subject="Business"><span class="subject-icon" aria-hidden="true">↗</span><span><strong>Business &amp; Management</strong><small>Find a direction</small></span><span class="subject-arrow" aria-hidden="true">→</span></a>
+          <a class="subject-card subject-peach" href="#discover" data-subject="Engineering"><span class="subject-icon" aria-hidden="true">⌘</span><span><strong>Engineering</strong><small>Build what’s next</small></span><span class="subject-arrow" aria-hidden="true">→</span></a>
+          <a class="subject-card subject-lavender" href="#discover" data-subject="Computer Science"><span class="subject-icon" aria-hidden="true">〈/〉</span><span><strong>Computer Science</strong><small>Make ideas real</small></span><span class="subject-arrow" aria-hidden="true">→</span></a>
+          <a class="subject-card subject-yellow" href="#discover" data-subject="Health"><span class="subject-icon" aria-hidden="true">✳</span><span><strong>Health &amp; Life Sciences</strong><small>Make a difference</small></span><span class="subject-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="guidance-section" id="guidance">
+      <div class="container guidance-layout">
+        <div class="guidance-copy"><span class="section-kicker">A little more clarity</span><h2>Big decisions feel easier with a good guide.</h2><p>Choosing a university brings a lot of questions. We’re building useful, straightforward guidance to help you think through each step.</p><a class="button button-light" href="#about">See how it works <span aria-hidden="true">→</span></a></div>
+        <div class="guidance-points">
+          <article class="guidance-point"><span class="point-number">01</span><div><h3>Know what to ask</h3><p>Learn which details to check when exploring a university or program.</p></div><span class="point-symbol" aria-hidden="true">↗</span></article>
+          <article class="guidance-point"><span class="point-number">02</span><div><h3>Compare with confidence</h3><p>Keep your priorities in view as you consider different options.</p></div><span class="point-symbol" aria-hidden="true">⇄</span></article>
+          <article class="guidance-point"><span class="point-number">03</span><div><h3>Plan your next step</h3><p>Make a list of questions to confirm with official admissions teams.</p></div><span class="point-symbol" aria-hidden="true">✓</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section" id="about">
+      <div class="container trust-layout">
+        <div><span class="section-kicker">Built around clarity</span><h2>Useful information.<br><span>Honest about what’s known.</span></h2></div>
+        <div class="trust-copy"><p>University details can change. UniGuide BD is being designed to make sources, verification status, and update dates easy to see—so you know what to confirm before you decide.</p><div class="trust-tags"><span>Source-aware</span><span>Student-first</span><span>Made for Bangladesh</span></div></div>
+      </div>
+    </section>
+
+    <section class="closing-cta">
+      <div class="container closing-inner"><div><span class="section-kicker">Take the first step</span><h2>Your university journey is yours to shape.</h2></div><a class="button button-primary" href="universities.html">Explore your options <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand"><a class="brand brand-light" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a><p>A clearer way to explore what comes next.</p></div>
+      <div class="footer-links"><div><strong>Explore</strong><a href="universities.html">Universities</a><a href="#subjects">Subjects</a></div><div><strong>Compare</strong><a href="compare.html">University comparison</a><a href="university.html?id=nsu">Sample profile</a></div><div><strong>For students</strong><a href="#guidance">Guidance</a><a href="#about">How we handle information</a></div></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Demo interface — content shown is illustrative, not verified advice.</span></div>
+  </footer>
+</body>
+</html>

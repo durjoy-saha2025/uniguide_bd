@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compare illustrative university listings side by side on UniGuide BD.">
+  <meta name="theme-color" content="#f7f8f4">
+  <title>Compare Universities | UniGuide BD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/shared.js" defer></script>
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/compare.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="UniGuide BD home"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="sr-only">Toggle navigation</span><span class="menu-lines" aria-hidden="true"></span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="universities.html">Universities</a><a href="index.html#subjects">Subjects</a><a href="index.html#guidance">Guidance</a><a href="compare.html" aria-current="page">Compare <span class="compare-count" data-compare-count>0</span></a>
+      </nav>
+      <a class="button button-small button-outline header-action" href="universities.html">Add universities <span aria-hidden="true">+</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero compare-hero">
+      <div class="container page-hero-inner"><div><span class="section-kicker">Your shortlist</span><h1>Compare your <span>options.</span></h1><p>Review the information available in this demo and spot what you’ll need to verify.</p></div><div class="page-hero-note"><span aria-hidden="true">⇄</span><span><strong>2–4 universities</strong><small>Your selection stays in this browser.</small></span></div></div>
+    </section>
+    <section class="section compare-section">
+      <div class="container">
+        <div class="demo-notice"><span aria-hidden="true">ⓘ</span><span>All entries are illustrative, unverified demo content. No tuition estimates, rankings, admission criteria, scholarship claims, or official links are fabricated here.</span></div>
+        <div class="comparison-empty" id="comparison-empty" hidden><span class="empty-icon" aria-hidden="true">⇄</span><h2>Choose at least two universities</h2><p>Go to the directory and select two to four sample listings to build your comparison.</p><a class="button button-primary" href="universities.html">Browse universities <span aria-hidden="true">→</span></a></div>
+        <div id="comparison-content" hidden>
+          <div class="comparison-heading"><div><span class="section-kicker">Side-by-side view</span><h2 id="comparison-title">Your comparison</h2></div><button class="button button-outline" id="clear-comparison" type="button">Clear all</button></div>
+          <p class="comparison-status" id="comparison-status" role="status"></p>
+          <div class="comparison-scroll"><table class="comparison-table"><thead id="comparison-head"></thead><tbody id="comparison-body"></tbody></table></div>
+          <p class="comparison-footnote">For accurate and current information, use official university and regulator sources. This demo does not make recommendations or eligibility decisions.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand brand-light" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a><p>A clearer way to explore what comes next.</p></div><div class="footer-links"><div><strong>Explore</strong><a href="index.html">Home</a><a href="universities.html">Universities</a></div><div><strong>Compare</strong><a href="compare.html">Your comparison</a><a href="university.html?id=nsu">Sample profile</a></div><div><strong>Guidance</strong><a href="index.html#guidance">Student guides</a><a href="index.html#about">About UniGuide</a></div></div></div><div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Demo interface — content shown is illustrative, not verified advice.</span></div></footer>
+</body>
+</html>

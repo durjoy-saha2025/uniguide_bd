@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore an illustrative sample university profile on UniGuide BD.">
+  <meta name="theme-color" content="#f7f8f4">
+  <title>University Profile | UniGuide BD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/shared.js" defer></script>
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/profile.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="UniGuide BD home"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="sr-only">Toggle navigation</span><span class="menu-lines" aria-hidden="true"></span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="universities.html" aria-current="page">Universities</a><a href="index.html#subjects">Subjects</a><a href="index.html#guidance">Guidance</a><a href="compare.html">Compare <span class="compare-count" data-compare-count>0</span></a>
+      </nav>
+      <a class="button button-small button-outline header-action" href="universities.html">Browse list <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="profile-cover"><div class="container"><a class="back-link" href="universities.html">← Back to universities</a><div class="profile-cover-art" aria-hidden="true"><div class="profile-building"></div><span class="profile-monogram" id="profile-monogram">U</span></div></div></section>
+    <section class="profile-heading-section">
+      <div class="container profile-heading">
+        <div><div class="profile-tags"><span class="demo-badge">Illustrative demo profile</span><span class="verification-badge">Not verified</span></div><h1 id="profile-name">University profile</h1><p class="profile-location" id="profile-location"></p></div>
+        <a class="button button-primary" id="profile-compare" href="universities.html">Select to compare <span aria-hidden="true">⇄</span></a>
+      </div>
+    </section>
+    <section class="profile-content section">
+      <div class="container profile-layout">
+        <div class="profile-main">
+          <div class="demo-notice"><span aria-hidden="true">ⓘ</span><span>This is a layout example, not a verified university record. Confirm all details directly with the university and official regulators.</span></div>
+          <article class="profile-panel"><span class="section-kicker">Overview</span><h2>Explore with the right questions.</h2><p>This sample profile shows how university information will be organized. The data available in this demo is limited to the name and a sample location; it does not confirm accreditation, programs, fees, admissions, scholarships, or campus facilities.</p></article>
+          <article class="profile-panel"><div class="panel-heading"><div><span class="section-kicker">Study options</span><h2>Subject examples in this demo</h2></div><span class="demo-badge">Not a verified program list</span></div><ul class="topic-list" id="profile-subjects"></ul></article>
+          <article class="profile-panel"><div class="panel-heading"><div><span class="section-kicker">Before you apply</span><h2>Details to confirm</h2></div></div><div class="detail-grid"><div><span>Tuition and fee breakdown</span><strong>Not provided in this demo</strong></div><div><span>Admission requirements</span><strong>Not provided in this demo</strong></div><div><span>Scholarships and waivers</span><strong>Not provided in this demo</strong></div><div><span>Rankings and editions</span><strong>No verified records provided</strong></div><div><span>UGC verification</span><strong>Not verified</strong></div><div><span>Last verified</span><strong>No verification date</strong></div></div></article>
+        </div>
+        <aside class="profile-sidebar">
+          <div class="profile-panel contact-panel"><span class="section-kicker">Official information</span><h2>Check with the source</h2><p>Official website and admissions links are not available in this demo. Avoid relying on third-party listings for current requirements or fees.</p><span class="button button-muted" aria-disabled="true">Official links unavailable</span></div>
+          <div class="profile-panel"><span class="section-kicker">Location</span><h2>Sample location</h2><p id="profile-location-note">Location details have not been independently checked.</p><div class="map-placeholder" aria-label="Map not available in demo"><span aria-hidden="true">⌖</span><strong>Map not available</strong><small>Demo profile — no verified coordinates</small></div></div>
+        </aside>
+      </div>
+    </section>
+    <section class="closing-cta"><div class="container closing-inner"><div><span class="section-kicker">Compare your shortlist</span><h2>Keep your options side by side.</h2></div><a class="button button-primary" href="universities.html">Choose universities <span aria-hidden="true">→</span></a></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand brand-light" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a><p>A clearer way to explore what comes next.</p></div><div class="footer-links"><div><strong>Explore</strong><a href="index.html">Home</a><a href="universities.html">Universities</a></div><div><strong>Compare</strong><a href="compare.html">Compare universities</a><a href="universities.html">Directory</a></div><div><strong>Guidance</strong><a href="index.html#guidance">Student guides</a><a href="index.html#about">About UniGuide</a></div></div></div><div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Demo interface — content shown is illustrative, not verified advice.</span></div></footer>
+</body>
+</html>
