@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Protected UniGuide BD administration for verified university information.">
+  <title>Admin workspace | UniGuide BD</title>
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/shared.js" defer></script>
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a>
+    <nav class="primary-nav" aria-label="Main navigation"><a href="universities.html">Public site</a><a href="student.html">Student dashboard</a></nav>
+    <button class="button button-small button-outline" id="admin-sign-out" type="button">Sign out</button>
+  </div></header>
+  <main id="main">
+    <section class="page-hero"><div class="container page-hero-inner"><div><span class="section-kicker">Content administration</span><h1>Review and manage <span>catalog data.</span></h1><p>Only publish facts with a verified source. Changes are logged for review.</p></div></div></section>
+    <section class="section"><div class="container admin-layout">
+      <aside class="admin-sidebar profile-panel"><span class="section-kicker">Workspace</span><label for="admin-resource">Manage</label><select id="admin-resource">
+        <option value="universities">Universities</option><option value="sources">Sources</option><option value="programs">Programs</option><option value="program-fees">Program fees</option><option value="admission-requirements">Admission requirements</option><option value="scholarships">Scholarships</option><option value="rankings">Rankings</option><option value="news">News and updates</option><option value="guides">Student guides</option>
+      </select><p class="admin-hint">Draft content stays private. Publish only after checking the linked source.</p></aside>
+      <section class="admin-main profile-panel" aria-labelledby="admin-title">
+        <div class="admin-heading"><div><span class="section-kicker">Management</span><h2 id="admin-title">Universities</h2></div><button class="button button-primary" id="add-record" type="button">Add new</button></div>
+        <div class="admin-toolbar"><label>Search <input id="admin-search" type="search" placeholder="Search records"></label><label>Filter <select id="admin-filter"><option value="">All statuses</option></select></label><label>Sort by <select id="admin-sort"></select></label><label>Order <select id="admin-direction"><option value="ASC">Ascending</option><option value="DESC">Descending</option></select></label><button class="button button-outline" id="run-search" type="button">Apply</button></div>
+        <p id="admin-status" role="status" aria-live="polite"></p>
+        <div class="admin-table-scroll"><table class="admin-table"><thead id="admin-table-head"></thead><tbody id="admin-table-body"></tbody></table></div>
+        <nav class="directory-pagination" id="admin-pagination" aria-label="Admin record pages" hidden><button class="button button-outline" type="button" data-page="previous">Previous</button><span data-page-label aria-live="polite"></span><button class="button button-outline" type="button" data-page="next">Next</button></nav>
+      </section>
+    </div></section>
+  </main>
+  <dialog id="record-dialog" aria-labelledby="record-dialog-title"><form id="record-form" class="admin-form"><div class="admin-heading"><h2 id="record-dialog-title">New record</h2><button class="text-button" type="button" data-close-dialog>Close</button></div><div id="record-fields"></div><p id="record-error" role="alert"></p><div class="admin-form-actions"><button class="button button-outline" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Save record</button></div></form></dialog>
+  <dialog id="details-dialog" aria-labelledby="details-title"><div class="profile-panel"><div class="admin-heading"><h2 id="details-title">Record details</h2><button class="text-button" type="button" data-close-dialog>Close</button></div><dl id="record-details"></dl></div></dialog>
+  <footer class="site-footer"><div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Admin changes are recorded in the audit log.</span></div></footer>
+</body>
+</html>

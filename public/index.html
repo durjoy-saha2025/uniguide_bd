@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="assets/css/design-system.css">
   <link rel="stylesheet" href="assets/css/site.css">
   <script src="assets/js/shared.js" defer></script>
-  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/api.js" defer></script>
   <script src="assets/js/app.js" defer></script>
 </head>
 <body>
@@ -32,11 +32,13 @@
       </button>
       <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
         <a href="universities.html">Universities</a>
+        <a href="guides.html">Guides</a>
+        <a href="news.html">Updates</a>
         <a href="#subjects">Subjects</a>
         <a href="#guidance">Guidance</a>
         <a href="compare.html">Compare <span class="compare-count" data-compare-count>0</span></a>
       </nav>
-      <a class="button button-small button-outline header-action" href="universities.html">Start exploring <span aria-hidden="true">→</span></a>
+      <a class="button button-small button-outline header-action" href="login.html">Student account</a>
     </div>
   </header>
 
@@ -84,7 +86,7 @@
         <form class="search-panel" id="discovery-search">
           <div class="search-heading">
             <div><span class="section-kicker">Make it yours</span><h2 id="search-title">What are you looking for?</h2></div>
-            <span class="demo-badge">Demo experience</span>
+            <span class="demo-badge">Verified records only</span>
           </div>
           <div class="search-fields">
             <label class="search-field">
@@ -104,7 +106,7 @@
             </label>
             <button class="button button-primary search-submit" type="submit">Find options <span aria-hidden="true">→</span></button>
           </div>
-          <p class="search-helper" id="search-status" role="status">Search the illustrative sample below. University details are demo content and need verification.</p>
+          <p class="search-helper" id="search-status" role="status">Search the verified directory by university, subject, or location.</p>
         </form>
       </div>
     </section>
@@ -112,13 +114,12 @@
     <section class="section universities-section" aria-labelledby="universities-title">
       <div class="container">
         <div class="section-heading">
-          <div><span class="section-kicker">A place to start</span><h2 id="universities-title">Explore universities</h2><p>A small sample to help you picture your options.</p></div>
+          <div><span class="section-kicker">A place to start</span><h2 id="universities-title">Explore universities</h2><p>Browse published listings with verified source references.</p></div>
           <a class="text-link" href="universities.html">Browse all universities <span aria-hidden="true">→</span></a>
         </div>
-        <div class="demo-notice"><span aria-hidden="true">ⓘ</span> <span>Illustrative demo content. These examples are not verified listings; check official university sources before making decisions.</span></div>
         <div class="university-grid" id="university-list" aria-live="polite"></div>
         <div class="empty-state" id="empty-state" hidden>
-          <span class="empty-icon" aria-hidden="true">⌕</span><h3>No sample options match yet</h3><p>Try a different search or clear the location filter.</p>
+          <span class="empty-icon" aria-hidden="true">⌕</span><h3>No verified listings yet</h3><p>The catalog will show universities once the team has entered and verified source-backed information.</p>
           <button class="button button-outline" id="clear-search" type="button">Clear search</button>
         </div>
       </div>
@@ -156,17 +157,24 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="latest-updates-title">
+      <div class="container">
+        <div class="section-heading"><div><span class="section-kicker">From verified sources</span><h2 id="latest-updates-title">Latest university updates</h2><p>Important announcements with a path back to the original source.</p></div><a class="text-link" href="news.html">All updates <span aria-hidden="true">→</span></a></div>
+        <div class="catalog-card-grid" id="latest-updates" aria-live="polite"><p class="catalog-meta">Loading verified updates…</p></div>
+      </div>
+    </section>
+
     <section class="closing-cta">
-      <div class="container closing-inner"><div><span class="section-kicker">Take the first step</span><h2>Your university journey is yours to shape.</h2></div><a class="button button-primary" href="universities.html">Explore your options <span aria-hidden="true">↗</span></a></div>
+      <div class="container closing-inner"><div><span class="section-kicker">Take the first step</span><h2>Your university journey is yours to shape.</h2></div><div class="hero-actions"><a class="button button-primary" href="universities.html">Explore your options <span aria-hidden="true">↗</span></a><a class="button button-light" href="login.html">Get recommendations</a></div></div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-main">
       <div class="footer-brand"><a class="brand brand-light" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a><p>A clearer way to explore what comes next.</p></div>
-      <div class="footer-links"><div><strong>Explore</strong><a href="universities.html">Universities</a><a href="#subjects">Subjects</a></div><div><strong>Compare</strong><a href="compare.html">University comparison</a><a href="university.html?id=nsu">Sample profile</a></div><div><strong>For students</strong><a href="#guidance">Guidance</a><a href="#about">How we handle information</a></div></div>
+      <div class="footer-links"><div><strong>Explore</strong><a href="universities.html">Universities</a><a href="#subjects">Subjects</a></div><div><strong>Compare</strong><a href="compare.html">University comparison</a><a href="guides.html">Student guides</a><a href="news.html">Updates</a></div><div><strong>For students</strong><a href="login.html">Student account</a><a href="#guidance">Guidance</a><a href="#about">How we handle information</a></div></div>
     </div>
-    <div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Demo interface — content shown is illustrative, not verified advice.</span></div>
+    <div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>University facts are shown only with their verified sources.</span></div>
   </footer>
 </body>
 </html>

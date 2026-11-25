@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace UniGuide\App\Controllers;
 
 use PDO;
+use UniGuide\App\Core\AuthRateLimiter;
 use UniGuide\App\Core\ApiResponse;
 use UniGuide\App\Core\Csrf;
 use UniGuide\App\Core\Request;
@@ -15,11 +16,13 @@ final class AuthController
 {
     private PDO $database;
     private UserRepository $users;
+    private AuthRateLimiter $rateLimiter;
 
     public function __construct(PDO $database)
     {
         $this->database = $database;
         $this->users = new UserRepository($database);
+        $this->rateLimiter = new AuthRateLimiter($database);
     }
 
     public function handle(): void
@@ -93,6 +96,11 @@ final class AuthController
         Csrf::verify($body);
         $email = strtolower($this->requiredString($body, 'email', 254));
         $password = $this->requiredString($body, 'password', 128);
+        $ipAddress = $_SERVER['REMOTE_ADDR'] ?? '';
+        if ($this->rateLimiter->isBlocked($email, $ipAddress)) {
+            header('Retry-After: 900');
+            ApiResponse::error('too_many_attempts', 'Too many sign-in attempts. Try again in 15 minutes.', 429);
+        }
         $user = $this->users->findByEmail($email);
 
         if (
@@ -100,9 +108,11 @@ final class AuthController
             || $user['account_status'] !== 'active'
             || !password_verify($password, $user['password_hash'])
         ) {
+            $this->rateLimiter->recordFailure($email, $ipAddress);
             ApiResponse::error('invalid_credentials', 'The email or password is incorrect.', 401);
         }
 
+        $this->rateLimiter->clear($email, $ipAddress);
         if (password_needs_rehash($user['password_hash'], PASSWORD_DEFAULT)) {
             $newHash = password_hash($password, PASSWORD_DEFAULT);
             if ($newHash === false) {

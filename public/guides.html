@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Read practical guides to university admissions, subjects, tuition, scholarships, and choosing a university in Bangladesh.">
+  <meta name="theme-color" content="#f7f8f4">
+  <title>Student Guides | UniGuide BD</title>
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/shared.js" defer></script>
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/catalog-pages.js" defer></script>
+</head>
+<body data-catalog-resource="guides">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="UniGuide BD home"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a>
+    <nav class="primary-nav" id="primary-nav" aria-label="Main navigation"><a href="universities.html">Universities</a><a href="guides.html" aria-current="page">Guides</a><a href="news.html">Updates</a><a href="compare.html">Compare</a></nav>
+    <a class="button button-small button-outline header-action" href="login.html">Student account</a>
+  </div></header>
+  <main id="main">
+    <section class="page-hero"><div class="container page-hero-inner"><div><span class="section-kicker">Student guidance</span><h1>Make your next step <span>clearer.</span></h1><p>Practical, reviewed guidance for exploring subjects, admissions, costs, and scholarships.</p></div><div class="page-hero-note"><span aria-hidden="true">✳</span><span><strong>Thoughtful, not pushy</strong><small>Use guides to prepare questions for official sources.</small></span></div></div></section>
+    <section class="section"><div class="container">
+      <form class="catalog-filters" id="catalog-filters"><label>Search guides<input id="catalog-query" type="search" placeholder="e.g. scholarship or admission"></label><label>Category<select id="catalog-category"><option value="">All categories</option></select></label><button class="button button-primary" type="submit">Search</button></form>
+      <p class="catalog-status" id="catalog-status" role="status" aria-live="polite">Loading guides…</p>
+      <div class="catalog-card-grid" id="catalog-list" aria-live="polite"></div>
+      <article class="profile-panel catalog-article" id="catalog-article" hidden></article>
+      <div class="empty-state" id="catalog-empty" hidden><span class="empty-icon" aria-hidden="true">✳</span><h2>No guides found</h2><p>There are no published guides matching this search yet.</p></div>
+      <div class="empty-state" id="catalog-error" hidden role="alert"><span class="empty-icon" aria-hidden="true">!</span><h2>Guides could not be loaded</h2><p></p><button class="button button-outline" type="button" data-retry>Try again</button></div>
+      <nav class="directory-pagination" id="catalog-pagination" aria-label="Guide pages" hidden><button class="button button-outline" type="button" data-page="previous">Previous</button><span data-page-label aria-live="polite"></span><button class="button button-outline" type="button" data-page="next">Next</button></nav>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand brand-light" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a><p>A clearer way to explore what comes next.</p></div><div class="footer-links"><div><strong>Explore</strong><a href="universities.html">Universities</a><a href="compare.html">Compare options</a></div><div><strong>Learn</strong><a href="guides.html">Student guides</a><a href="news.html">University updates</a></div><div><strong>For students</strong><a href="login.html">Student account</a><a href="index.html#about">About UniGuide</a></div></div></div><div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Guidance is general information, not official admission advice.</span></div></footer>
+</body>
+</html>

@@ -74,6 +74,7 @@ CREATE TABLE IF NOT EXISTS programs (
     field_of_study VARCHAR(120) NULL,
     duration_months SMALLINT UNSIGNED NULL,
     description TEXT NULL,
+    source_id BIGINT UNSIGNED NULL,
     verification_status ENUM('draft', 'pending', 'verified', 'rejected') NOT NULL DEFAULT 'draft',
     verified_at DATETIME NULL,
     status ENUM('draft', 'published', 'archived') NOT NULL DEFAULT 'draft',
@@ -83,7 +84,9 @@ CREATE TABLE IF NOT EXISTS programs (
     UNIQUE KEY uq_programs_university_slug (university_id, slug),
     KEY idx_programs_public (status, field_of_study),
     CONSTRAINT fk_programs_university FOREIGN KEY (university_id)
-        REFERENCES universities (id) ON DELETE CASCADE
+        REFERENCES universities (id) ON DELETE CASCADE,
+    CONSTRAINT fk_programs_source FOREIGN KEY (source_id)
+        REFERENCES sources (id) ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS program_fees (
@@ -268,6 +271,17 @@ CREATE TABLE IF NOT EXISTS password_reset_tokens (
     KEY idx_password_reset_user_expiry (user_id, expires_at),
     CONSTRAINT fk_password_reset_user FOREIGN KEY (user_id)
         REFERENCES users (id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS auth_login_attempts (
+    identifier_hash CHAR(64) NOT NULL,
+    failures SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+    window_started_at DATETIME NOT NULL,
+    blocked_until DATETIME NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (identifier_hash),
+    KEY idx_auth_login_blocked_until (blocked_until),
+    CONSTRAINT chk_auth_login_failures CHECK (failures <= 5)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS saved_universities (

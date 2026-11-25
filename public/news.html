@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse source-verified university admission, scholarship, ranking, program, and campus updates in Bangladesh.">
+  <meta name="theme-color" content="#f7f8f4">
+  <title>University Updates | UniGuide BD</title>
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/shared.js" defer></script>
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/catalog-pages.js" defer></script>
+</head>
+<body data-catalog-resource="news">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="UniGuide BD home"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a>
+    <nav class="primary-nav" id="primary-nav" aria-label="Main navigation"><a href="universities.html">Universities</a><a href="guides.html">Guides</a><a href="news.html" aria-current="page">Updates</a><a href="compare.html">Compare</a></nav>
+    <a class="button button-small button-outline header-action" href="login.html">Student account</a>
+  </div></header>
+  <main id="main">
+    <section class="page-hero"><div class="container page-hero-inner"><div><span class="section-kicker">Verified updates</span><h1>What’s changing <span>in education.</span></h1><p>Find published university and admission updates with a link back to their verified source.</p></div><div class="page-hero-note"><span aria-hidden="true">↗</span><span><strong>Source-linked reporting</strong><small>Check the original announcement before you act.</small></span></div></div></section>
+    <section class="section"><div class="container">
+      <form class="catalog-filters" id="catalog-filters"><label>Search updates<input id="catalog-query" type="search" placeholder="e.g. admission or scholarship"></label><label>Category<select id="catalog-category"><option value="">All categories</option></select></label><button class="button button-primary" type="submit">Search</button></form>
+      <p class="catalog-status" id="catalog-status" role="status" aria-live="polite">Loading verified updates…</p>
+      <div class="catalog-card-grid" id="catalog-list" aria-live="polite"></div>
+      <article class="profile-panel catalog-article" id="catalog-article" hidden></article>
+      <div class="empty-state" id="catalog-empty" hidden><span class="empty-icon" aria-hidden="true">↗</span><h2>No verified updates found</h2><p>There are no published updates matching this search yet.</p></div>
+      <div class="empty-state" id="catalog-error" hidden role="alert"><span class="empty-icon" aria-hidden="true">!</span><h2>Updates could not be loaded</h2><p></p><button class="button button-outline" type="button" data-retry>Try again</button></div>
+      <nav class="directory-pagination" id="catalog-pagination" aria-label="Update pages" hidden><button class="button button-outline" type="button" data-page="previous">Previous</button><span data-page-label aria-live="polite"></span><button class="button button-outline" type="button" data-page="next">Next</button></nav>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand brand-light" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a><p>A clearer way to explore what comes next.</p></div><div class="footer-links"><div><strong>Explore</strong><a href="universities.html">Universities</a><a href="compare.html">Compare options</a></div><div><strong>Learn</strong><a href="guides.html">Student guides</a><a href="news.html">University updates</a></div><div><strong>For students</strong><a href="login.html">Student account</a><a href="index.html#about">About UniGuide</a></div></div></div><div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Only published updates with verified source references appear here.</span></div></footer>
+</body>
+</html>

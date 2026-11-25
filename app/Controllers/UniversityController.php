@@ -30,11 +30,12 @@ final class UniversityController
 
         $query = $this->stringParameter('q', 120);
         $city = $this->stringParameter('city', 100);
+        $subject = $this->stringParameter('subject', 120);
         $page = $this->integerParameter('page', 1, 1000000);
         $perPage = $this->integerParameter('per_page', 20, 100);
-        $total = $this->universities->countPublished($query, $city);
+        $total = $this->universities->countPublished($query, $city, $subject);
         $offset = ($page - 1) * $perPage;
-        $items = $this->universities->listPublished($query, $city, $perPage, $offset);
+        $items = $this->universities->listPublished($query, $city, $subject, $perPage, $offset);
 
         ApiResponse::success($items, [
             'page' => $page,

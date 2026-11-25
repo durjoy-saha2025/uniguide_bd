@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Browse and compare illustrative university listings on UniGuide BD.">
+  <meta name="description" content="Browse verified university listings and study options in Bangladesh.">
   <meta name="theme-color" content="#f7f8f4">
   <title>Explore Universities | UniGuide BD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/design-system.css">
   <link rel="stylesheet" href="assets/css/site.css">
   <script src="assets/js/shared.js" defer></script>
-  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/api.js" defer></script>
   <script src="assets/js/directory.js" defer></script>
 </head>
 <body>
@@ -22,21 +22,20 @@
       <a class="brand" href="index.html" aria-label="UniGuide BD home"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="sr-only">Toggle navigation</span><span class="menu-lines" aria-hidden="true"></span></button>
       <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
-        <a href="universities.html" aria-current="page">Universities</a><a href="index.html#subjects">Subjects</a><a href="index.html#guidance">Guidance</a><a href="compare.html">Compare <span class="compare-count" data-compare-count>0</span></a>
+        <a href="universities.html" aria-current="page">Universities</a><a href="guides.html">Guides</a><a href="news.html">Updates</a><a href="compare.html">Compare <span class="compare-count" data-compare-count>0</span></a>
       </nav>
-      <a class="button button-small button-outline header-action" href="compare.html">Compare picks <span aria-hidden="true">→</span></a>
+      <a class="button button-small button-outline header-action" href="login.html">Student account</a>
     </div>
   </header>
   <main id="main">
     <section class="page-hero">
       <div class="container page-hero-inner">
-        <div><span class="section-kicker">Explore your options</span><h1>Find a place to <span>begin.</span></h1><p>Browse a small illustrative sample, then choose a few options to compare side by side.</p></div>
+        <div><span class="section-kicker">Explore your options</span><h1>Find a place to <span>begin.</span></h1><p>Search source-backed university listings and compare the options that fit your plans.</p></div>
         <div class="page-hero-note"><span aria-hidden="true">✳</span><span><strong>Built for thoughtful choices</strong><small>Check every detail with official university sources.</small></span></div>
       </div>
     </section>
     <section class="section directory-section">
       <div class="container">
-        <div class="demo-notice"><span aria-hidden="true">ⓘ</span><span>These listings are illustrative demo content—not verified university profiles. No fees, rankings, admissions, or scholarship claims are provided.</span></div>
         <form class="directory-filters" id="directory-filters">
           <label class="directory-search"><span class="field-label">Search</span><input id="directory-query" type="search" placeholder="University or subject" autocomplete="off"></label>
           <label><span class="field-label">Location</span><select id="directory-location"><option value="">All locations</option><option>Dhaka</option><option>Chattogram</option><option>Sylhet</option></select></label>
@@ -44,24 +43,30 @@
           <label><span class="field-label">Sort by</span><select id="directory-sort"><option value="name">Name A–Z</option><option value="name-desc">Name Z–A</option></select></label>
         </form>
         <div class="directory-toolbar">
-          <p id="directory-status" role="status">Showing all sample listings.</p>
+          <p id="directory-status" role="status">Loading verified listings…</p>
           <div class="directory-view" aria-label="Listing view">
             <button type="button" class="view-button is-active" data-view="grid" aria-pressed="true">Grid</button>
             <button type="button" class="view-button" data-view="list" aria-pressed="false">List</button>
           </div>
         </div>
         <div class="university-grid directory-grid" id="directory-list" aria-live="polite"></div>
-        <div class="empty-state" id="directory-empty" hidden><span class="empty-icon" aria-hidden="true">⌕</span><h2>No sample listings found</h2><p>Try changing your search or filters.</p><button class="button button-outline" id="reset-directory" type="button">Reset filters</button></div>
+        <div class="empty-state" id="directory-empty" hidden><span class="empty-icon" aria-hidden="true">⌕</span><h2>No verified universities found</h2><p>Try changing your search or filters.</p><button class="button button-outline" id="reset-directory" type="button">Reset filters</button></div>
+        <div class="empty-state" id="directory-error" hidden role="alert"><span class="empty-icon" aria-hidden="true">!</span><h2>Listings could not be loaded</h2><p></p><button class="button button-outline" type="button" data-retry>Try again</button></div>
+        <nav class="directory-pagination" id="directory-pagination" aria-label="University listing pages" hidden>
+          <button class="button button-outline" type="button" data-page="previous">Previous</button>
+          <span data-page-label aria-live="polite"></span>
+          <button class="button button-outline" type="button" data-page="next">Next</button>
+        </nav>
         <aside class="compare-bar" aria-label="Comparison selection">
-          <span><strong id="selection-count">0 selected</strong><small>Select 2–4 sample listings to compare.</small></span>
-          <a class="button button-primary is-disabled" id="compare-selected" href="compare.html" aria-disabled="true">Compare selected <span aria-hidden="true">→</span></a>
+          <span><strong id="selection-count">0 selected</strong><small>Select two to four verified listings to compare.</small></span>
+          <div class="compare-actions"><button class="button button-outline" id="sync-comparison" type="button">Save shortlist to account</button><a class="button button-primary is-disabled" id="compare-selected" href="compare.html" aria-disabled="true">Compare selected <span aria-hidden="true">→</span></a></div>
         </aside>
       </div>
     </section>
   </main>
   <footer class="site-footer">
-    <div class="container footer-main"><div class="footer-brand"><a class="brand brand-light" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a><p>A clearer way to explore what comes next.</p></div><div class="footer-links"><div><strong>Explore</strong><a href="index.html">Home</a><a href="universities.html">Universities</a></div><div><strong>Compare</strong><a href="compare.html">Compare universities</a><a href="university.html?id=nsu">Sample profile</a></div><div><strong>Guidance</strong><a href="index.html#guidance">Student guides</a><a href="index.html#about">About UniGuide</a></div></div></div>
-    <div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Demo interface — content shown is illustrative, not verified advice.</span></div>
+    <div class="container footer-main"><div class="footer-brand"><a class="brand brand-light" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a><p>A clearer way to explore what comes next.</p></div><div class="footer-links"><div><strong>Explore</strong><a href="index.html">Home</a><a href="universities.html">Universities</a></div><div><strong>Compare</strong><a href="compare.html">Compare universities</a><a href="universities.html">Browse verified profiles</a></div><div><strong>Guidance</strong><a href="guides.html">Student guides</a><a href="news.html">University updates</a><a href="login.html">Student account</a></div></div></div>
+    <div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Only published listings with verified references are shown.</span></div>
   </footer>
 </body>
 </html>

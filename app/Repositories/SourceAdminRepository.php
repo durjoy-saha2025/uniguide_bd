@@ -11,7 +11,14 @@ final class SourceAdminRepository
     {
     }
 
-    public function list(string $query, string $status, int $limit, int $offset): array
+    public function list(
+        string $query,
+        string $status,
+        int $limit,
+        int $offset,
+        string $sort = 'updated_at',
+        string $direction = 'DESC'
+    ): array
     {
         $conditions = [];
         $parameters = [];
@@ -35,7 +42,7 @@ final class SourceAdminRepository
             'SELECT id, title, source_type, url, publisher, notes, verification_status,
                     verified_at, created_at, updated_at
              FROM sources' . $where . '
-             ORDER BY updated_at DESC, id DESC
+             ORDER BY `' . $sort . '` ' . $direction . ', id DESC
              LIMIT :limit OFFSET :offset'
         );
         foreach ($parameters as $name => $value) {

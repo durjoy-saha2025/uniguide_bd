@@ -1,27 +1,25 @@
 # Development Tasks
 
-## Completed in the current backend milestone
+## Completed
 
-- [x] Connect the project to the local `uniguide_bd` MariaDB database.
-- [x] Create the initial relational schema without invented seed records.
-- [x] Add environment-based PDO and safe JSON error responses.
-- [x] Add public verified-university search and pagination.
-- [x] Add student registration, login, logout, password change, and deletion.
-- [x] Add session cookies, CSRF checks, and owner-only student-profile CRUD.
-- [x] Add role-protected university CRUD with activity logging.
-- [x] Add admin source CRUD and require verified sources for public university records.
-- [x] Add a CLI-only first super-admin setup command.
-- [x] Add a local least-privilege database-user provisioning helper.
+- [x] Build separate public pages for home, university directory, profile, and comparison.
+- [x] Connect public university discovery, profile, fee/program details, and comparison to verified APIs.
+- [x] Add source-managed PHP/MySQL tables and verified-source publication rules.
+- [x] Add admin CRUD APIs for sources, universities, programs, fees, admission requirements, scholarships, rankings, news, and guides.
+- [x] Add admin web workspace with search, filters, sorting, paging, details, edit, delete, and create flows for those catalog resources.
+- [x] Add public student guides and source-linked university update pages.
+- [x] Add student registration/login, private profile editing, saved/comparison lists, suggestions, eligibility screening, password changes, and account deletion UI.
+- [x] Add CSRF protection, session/role checks, audit logging, and DB-backed login throttling.
+- [x] Keep demo records out of the database and show clear empty states until verified records are entered.
+- [x] Update project documentation and run PHP lint, repository tests, and basic responsive browser checks.
 
-## Remaining backend milestones
+## Remaining
 
-- [ ] Implement CRUD endpoints for programs, fees, requirements, scholarships,
-  rankings, news, and guides.
-- [ ] Add student saved-university and comparison APIs.
-- [ ] Implement eligibility results using verified program requirements only.
-- [ ] Implement transparent recommendations and verified-fee budget estimates.
-- [ ] Add password reset delivery and login throttling.
-- [ ] Connect the directory, profiles, and comparison UI to the APIs.
-- [ ] Build and connect student and admin dashboard interfaces.
-- [ ] Add endpoint tests for authorization, validation, privacy, and remaining CRUD.
-- [ ] Review production configuration, migrations, backup and deployment steps.
+- [ ] Add password-reset endpoints and a configured email delivery provider.
+- [ ] Expand directory filters to include budget, scholarships, ranking publisher/edition, and campus type.
+- [ ] Complete university profile facilities, map, and latest-university-news sections when verified data fields are available.
+- [ ] Add admin student management, admin profile/settings, and activity-log browsing.
+- [ ] Add automated endpoint tests for authorization, validation, student privacy, CRUD, and login throttling.
+- [ ] Complete authenticated end-to-end tests for student and admin flows, plus broader device/browser coverage.
+- [ ] Review production security configuration, HTTPS, database privileges, backups, migrations, monitoring, and deployment.
+- [ ] Enter real university information only after collecting and verifying reliable sources.

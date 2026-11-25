@@ -30,7 +30,14 @@ final class UniversityAdminRepository
     {
     }
 
-    public function list(string $query, string $status, int $limit, int $offset): array
+    public function list(
+        string $query,
+        string $status,
+        int $limit,
+        int $offset,
+        string $sort = 'updated_at',
+        string $direction = 'DESC'
+    ): array
     {
         [$where, $parameters] = $this->filters($query, $status);
         $count = $this->database->prepare('SELECT COUNT(*) FROM universities' . $where);
@@ -48,7 +55,7 @@ final class UniversityAdminRepository
                     u.status, u.created_at, u.updated_at
              FROM universities u
              LEFT JOIN sources s ON s.id = u.source_id' . $where . '
-             ORDER BY u.updated_at DESC, u.id DESC
+             ORDER BY u.`' . $sort . '` ' . $direction . ', u.id DESC
              LIMIT :limit OFFSET :offset'
         );
         foreach ($parameters as $name => $value) {

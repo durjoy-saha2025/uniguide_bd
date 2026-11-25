@@ -40,6 +40,17 @@ $database->exec(
     )'
 );
 $database->exec(
+    'CREATE TABLE programs (
+        id INTEGER PRIMARY KEY,
+        university_id INTEGER NOT NULL,
+        name TEXT NOT NULL,
+        field_of_study TEXT,
+        source_id INTEGER,
+        status TEXT NOT NULL,
+        verification_status TEXT NOT NULL
+    )'
+);
+$database->exec(
     'CREATE TABLE sources (
         id INTEGER PRIMARY KEY,
         title TEXT NOT NULL,
@@ -47,6 +58,11 @@ $database->exec(
         publisher TEXT,
         verification_status TEXT NOT NULL
     )'
+);
+$database->exec(
+    "INSERT INTO programs (id, university_id, name, field_of_study, source_id, status, verification_status)
+     VALUES (1, 1, 'BSc in Computing', 'Computer Science', 1, 'published', 'verified'),
+            (2, 2, 'Draft Computing', 'Computer Science', 1, 'draft', 'verified')"
 );
 $database->exec(
     "INSERT INTO sources (id, title, url, publisher, verification_status)
@@ -81,12 +97,14 @@ foreach ($rows as $row) {
 }
 
 $repository = new UniversityRepository($database);
-expectSame(2, $repository->countPublished('', ''), 'Only published universities should be counted.');
-expectSame(1, $repository->countPublished('engineering', 'Dhaka'), 'Search and city filters should combine.');
-expectSame(1, count($repository->listPublished('', '', 1, 1)), 'The requested page size should be respected.');
+expectSame(2, $repository->countPublished('', '', ''), 'Only published universities should be counted.');
+expectSame(1, $repository->countPublished('engineering', 'Dhaka', ''), 'Search and city filters should combine.');
+expectSame(1, $repository->countPublished('', '', 'Computer Science'), 'Subject search must require a published verified program.');
+expectSame(1, $repository->countPublished('Computer Science', '', ''), 'Text search should include verified published programs.');
+expectSame(1, count($repository->listPublished('', '', '', 1, 1)), 'The requested page size should be respected.');
 expectSame(
     'North South University',
-    $repository->listPublished('', '', 1, 1)[0]['name'],
+    $repository->listPublished('', '', '', 1, 1)[0]['name'],
     'Pagination should use the stable alphabetical order.'
 );
 expectSame(

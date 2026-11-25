@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sign in or create a private UniGuide BD student account.">
+  <title>Student account | UniGuide BD</title>
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/shared.js" defer></script>
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/login.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">U</span><span>UniGuide<span class="brand-country"> BD</span></span></a>
+    <nav class="primary-nav" aria-label="Main navigation"><a href="universities.html">Universities</a><a href="guides.html">Guides</a><a href="news.html">Updates</a><a href="compare.html">Compare</a></nav>
+  </div></header>
+  <main id="main" class="section">
+    <div class="container auth-layout">
+      <section class="profile-panel auth-panel">
+        <span class="section-kicker">Student account</span>
+        <h1 id="auth-title">Welcome back</h1>
+        <p>Saved universities and academic preferences are private to your account.</p>
+        <div class="auth-tabs" role="group" aria-label="Choose account action">
+          <button type="button" class="button button-outline is-active" data-auth-mode="login" aria-pressed="true">Sign in</button>
+          <button type="button" class="button button-outline" data-auth-mode="register" aria-pressed="false">Create account</button>
+        </div>
+        <form id="login-form">
+          <label>Email <input name="email" type="email" autocomplete="email" required maxlength="254"></label>
+          <label>Password <input name="password" type="password" autocomplete="current-password" required maxlength="128"></label>
+          <button class="button button-primary" type="submit">Sign in</button>
+        </form>
+        <form id="register-form" hidden>
+          <label>Full name <input name="name" autocomplete="name" required maxlength="150"></label>
+          <label>Email <input name="email" type="email" autocomplete="email" required maxlength="254"></label>
+          <label>Password <input name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="128"></label>
+          <label>Confirm password <input name="password_confirmation" type="password" autocomplete="new-password" required minlength="12" maxlength="128"></label>
+          <button class="button button-primary" type="submit">Create account</button>
+        </form>
+        <p id="auth-status" role="status" aria-live="polite"></p>
+        <p class="catalog-meta">Administrator? <a href="admin.html">Open the admin workspace</a> after signing in.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-bottom"><span>© <span id="current-year"></span> UniGuide BD</span><span>Your account information is private.</span></div></footer>
+</body>
+</html>

@@ -76,7 +76,19 @@ final class UniversityAdminController
         }
         $page = $this->queryInteger('page', 1, 1000000);
         $perPage = $this->queryInteger('per_page', 20, 100);
-        $result = $this->universities->list($query, $status, $perPage, ($page - 1) * $perPage);
+        $sort = $this->queryString('sort', 40);
+        if ($sort === '') {
+            $sort = 'updated_at';
+        }
+        $direction = strtoupper($this->queryString('direction', 4));
+        if ($direction === '') {
+            $direction = 'DESC';
+        }
+        if (!in_array($sort, ['name', 'city', 'status', 'verification_status', 'created_at', 'updated_at', 'id'], true)
+            || !in_array($direction, ['ASC', 'DESC'], true)) {
+            ApiResponse::error('invalid_parameter', 'The sort option is invalid.', 422);
+        }
+        $result = $this->universities->list($query, $status, $perPage, ($page - 1) * $perPage, $sort, $direction);
 
         ApiResponse::success($result['items'], [
             'page' => $page,

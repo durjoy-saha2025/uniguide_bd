@@ -37,11 +37,18 @@ Create the database first, then configure the ignored root `.env` file using
 administrative local connection temporarily and run the provisioning helper to
 create a least-privilege app account. Never commit real credentials.
 
-The schema is a foundation, not a finished production migration system. Before
-production, add versioned migrations, retention rules, backups, and a reviewed
-least-privilege database account.
+For an existing database, apply each migration that has not already been
+applied, in order:
 
-For databases created before source-backed university verification was added,
-apply `database/migrations/001_university_sources.sql` once. It adds the
-restrictive source reference used to require evidence before a university can
-be verified and displayed publicly.
+1. `database/migrations/001_university_sources.sql` adds the restrictive
+   university-to-source reference.
+2. `database/migrations/002_program_sources.sql` adds program-level source
+   evidence.
+3. `database/migrations/003_auth_login_attempts.sql` creates the login-throttle
+   table.
+
+The initial `schema.sql` already contains these structures for a new database.
+This is not yet a full migration runner; track applied migrations before
+re-running non-idempotent ALTER statements. Before production, add a versioned
+migration process, retention rules, backups, and a reviewed least-privilege DB
+account.

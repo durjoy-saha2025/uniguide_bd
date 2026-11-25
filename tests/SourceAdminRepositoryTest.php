@@ -52,8 +52,14 @@ $sourceId = $repository->create([
     'verification_status' => 'pending',
     'verified_at' => null,
 ], 1);
+$database->exec(
+    "INSERT INTO sources (title, source_type, url, publisher, verification_status)
+     VALUES ('A later source', 'official_website', 'https://example.edu.bd/later', 'Example University', 'pending')"
+);
 assertSameValue('Official admissions page', $repository->findById($sourceId)['title'], 'Created source should be readable.');
 assertSameValue(1, $repository->list('admissions', 'pending', 20, 0)['total'], 'Search and status filtering should work.');
+$sortedSources = $repository->list('', '', 20, 0, 'title', 'ASC');
+assertSameValue('A later source', $sortedSources['items'][0]['title'], 'Admin source lists should support validated field sorting.');
 
 $updated = $repository->update($sourceId, [
     'title' => 'Verified admissions page',
